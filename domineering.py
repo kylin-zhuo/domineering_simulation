@@ -51,15 +51,18 @@ class Node(object):
 
 	# create children, until the tree reaches its leaves, i.e. the remaining is 0-length
 	def createChildren(self):
+
 		#(overwhelm, winner) = isOverwhelmed(board, threshold)
 		#if overwhelm:
 		#	self.value = maxsize * winner
 		#	return
+
 		if len(self.availableLocs) <= 0:
 			global COUNT_LEAVES
 			self.value = -maxsize * self.player
 			COUNT_LEAVES += 1
 			return
+			
 		for r in self.availableLocs:
 			i = r[0]
 			j = r[1]
@@ -335,13 +338,11 @@ if __name__ == "__main__":
 	#print COUNT_LEAVES
 
 	print "*" * 60
-	print "INSTRUCTIONS: type in the location you desire to place the domino like 1,2"
+	print "INSTRUCTIONS: type in the location you desire to place the domino like 1,2\n"
 	print "It indicates the left part of the domino when you are horizontal player,"
-	print "or the upper part of the domino when you are vertical player."
+	print "or the upper part of the domino when you are vertical player.\n"
 	print "The first player who cannot place more domino on the board will lose."
 	print "*" * 60, '\n'
-
-	
 
 	terminate = 0
 
@@ -378,8 +379,10 @@ if __name__ == "__main__":
 			bestVal = -1 * curPlayer * maxsize
 
 			for i in range(len(node.children)):
+
 				child = node.children[i]; 
 				val = minMax(child, switch(curPlayer))
+
 				if abs(curPlayer * maxsize - val) <= abs(curPlayer * maxsize - bestVal):
 					bestEdge = node.children[i].edge
 					bestVal = val
