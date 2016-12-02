@@ -1,0 +1,80 @@
+<gte version="0.1">
+  <gameDescription/>
+  <display>
+    <color player="1">#FF0000</color>
+    <color player="2">#0000FF</color>
+    <font>Times</font>
+    <strokeWidth>1</strokeWidth>
+    <nodeDiameter>5</nodeDiameter>
+    <isetDiameter>25</isetDiameter>
+    <levelDistance>75</levelDistance>
+  </display>
+  <players>
+    <player playerId="1">ver</player>
+    <player playerId="2">hor</player>
+  </players>
+  <extensiveForm>
+    <node player="ver">
+      <node player="hor" move="1,1">
+        <node player="ver" move="1,2">
+          <outcome move="2,2">
+            <payoff player="ver">1</payoff>
+            <payoff player="hor">-1</payoff>
+          </outcome>
+          <node player="hor" move="2,3">
+            <outcome move="3,1">
+              <payoff player="ver">-1</payoff>
+              <payoff player="hor">1</payoff>
+            </outcome>
+          </node>
+        </node>
+        <outcome move="2,2">
+          <payoff player="ver">-1</payoff>
+          <payoff player="hor">1</payoff>
+        </outcome>
+        <node player="ver" move="3,1">
+          <outcome move="1,2">
+            <payoff player="ver">1</payoff>
+            <payoff player="hor">-1</payoff>
+          </outcome>
+          <outcome move="1,3">
+            <payoff player="ver">1</payoff>
+            <payoff player="hor">-1</payoff>
+          </outcome>
+          <node player="hor" move="2,3">
+            <outcome move="1,2">
+              <payoff player="ver">-1</payoff>
+              <payoff player="hor">1</payoff>
+            </outcome>
+          </node>
+        </node>
+        <node player="ver" move="3,2">
+          <outcome move="1,2">
+            <payoff player="ver">1</payoff>
+            <payoff player="hor">-1</payoff>
+          </outcome>
+          <outcome move="1,3">
+            <payoff player="ver">1</payoff>
+            <payoff player="hor">-1</payoff>
+          </outcome>
+        </node>
+      </node>
+      <node player="hor" move="1,2">
+        <node player="ver" move="3,1">
+          <outcome move="1,1">
+            <payoff player="ver">1</payoff>
+            <payoff player="hor">-1</payoff>
+          </outcome>
+          <outcome move="1,3">
+            <payoff player="ver">1</payoff>
+            <payoff player="hor">-1</payoff>
+          </outcome>
+          <outcome move="2,3">
+            <payoff player="ver">1</payoff>
+            <payoff player="hor">-1</payoff>
+          </outcome>
+        </node>
+      </node>
+    </node>
+  </extensiveForm>
+</gte>
