@@ -1,0 +1,72 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1504\cocoasubrtf600
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 HelveticaNeue;\f2\fnil\fcharset0 HelveticaNeue-Light;
+}
+{\colortbl;\red255\green255\blue255;\red43\green105\blue145;\red0\green0\blue0;}
+{\*\expandedcolortbl;\csgray\c100000;\cssrgb\c21105\c48943\c63636;\cssrgb\c0\c0\c0;}
+{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc4\levelnfcn4\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{lower-alpha\})}{\leveltext\leveltemplateid1\'02\'00);}{\levelnumbers\'01;}\fi-360\li720\lin720 }{\listname ;}\listid1}
+{\list\listtemplateid2\listhybrid{\listlevel\levelnfc4\levelnfcn4\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{lower-alpha\})}{\leveltext\leveltemplateid101\'02\'00);}{\levelnumbers\'01;}\fi-360\li720\lin720 }{\listname ;}\listid2}
+{\list\listtemplateid3\listhybrid{\listlevel\levelnfc4\levelnfcn4\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{lower-alpha\})}{\leveltext\leveltemplateid201\'02\'00);}{\levelnumbers\'01;}\fi-360\li720\lin720 }{\listname ;}\listid3}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}{\listoverride\listid2\listoverridecount0\ls2}{\listoverride\listid3\listoverridecount0\ls3}}
+\paperw11900\paperh16840\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 README\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\sa140\partightenfactor0
+
+\f1\b\fs22 \cf2 \expnd0\expndtw0\kerning0
+Background\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\sl288\slmult1\sa180\partightenfactor0
+
+\f2\b0\fs20 \cf3 Domineering is a game invented by Goran Andersson in 1974 under the name of Crosscram but now more known as Domineering since the tile of dominoes are used in the game. The rules are simple and straightforward:  \
+\pard\tx20\tx380\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\li360\fi-360\sl288\slmult1\sa180\partightenfactor0
+\ls1\ilvl0
+\f0\fs24 \cf0 \kerning1\expnd0\expndtw0 {\listtext	a)	}
+\f2\fs20 \cf3 \expnd0\expndtw0\kerning0
+Set up a grid of any size. Normally the board is square. In this analysis we may start from simple size and evolve to a more complex one, i.e start from  5x5 board and expand even until 10x10. \
+\ls1\ilvl0
+\f0\fs24 \cf0 \kerning1\expnd0\expndtw0 {\listtext	b)	}
+\f2\fs20 \cf3 \expnd0\expndtw0\kerning0
+Both players place a 2\'d71 block on their turn. Player 1 must place his horizontally and Player 2 places hers vertically.\
+\ls1\ilvl0
+\f0\fs24 \cf0 \kerning1\expnd0\expndtw0 {\listtext	c)	}
+\f2\fs20 \cf3 \expnd0\expndtw0\kerning0
+The last player to be able to place a block wins the game.\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\sl288\slmult1\sa200\partightenfactor0
+\cf3 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\sa140\partightenfactor0
+
+\f1\b\fs22 \cf2 Primary Analysis\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\sl312\slmult1\partightenfactor0
+
+\f2\b0\fs20 \cf3 Consider the game in two phases: \
+\pard\tx20\tx380\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\li360\fi-360\sl312\slmult1\partightenfactor0
+\ls2\ilvl0
+\f0\fs24 \cf0 \kerning1\expnd0\expndtw0 {\listtext	a)	}
+\f2\fs20 \cf3 \expnd0\expndtw0\kerning0
+Starting phase \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\sl312\slmult1\partightenfactor0
+\cf3 Because the space is sufficient at the beginning, it appears that we cannot distinguish the performances of the settlements of tiles. As the figure below, the strategy in this phase for both players is to preserve a hole-like space for future move. \
+\
+\pard\tx20\tx380\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\li360\fi-360\sl312\slmult1\partightenfactor0
+\ls3\ilvl0
+\f0\fs24 \cf0 \kerning1\expnd0\expndtw0 {\listtext	a)	}
+\f2\fs20 \cf3 \expnd0\expndtw0\kerning0
+Middle-to-end phase\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\sl312\slmult1\partightenfactor0
+\cf3 Soma fatal mistakes can happen in this phase because the space available becomes complex (normally in the middle) and one fatal mistake may lead to the failure. The most tricky part of calculation should be applied during this phase. \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\sl312\slmult1\sa200\partightenfactor0
+\cf3 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\sa140\partightenfactor0
+
+\f1\b\fs22 \cf2 Solution\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\sl312\slmult1\partightenfactor0
+
+\f2\b0\fs20 \cf3 The basic knowledge of game playing, or adversarial game search, can be applied to the fundamental analysis of the procedure of small board game of Domineering, such as Minimax algorithms and sub-game perfect theorem.\
+\
+Since it is an old problem, the solution has been promoted by other researchers especially for the basic cases. For example, the 5x5 board is know to be a second-player win(Conway, 1976). Nevertheless, there is still space for analysis when the board is large enough. \
+\
+This code tries to play around with the low-dimensional cases.\
+\
+Still writing and modifying. Keep update.\
+}
