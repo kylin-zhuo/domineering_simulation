@@ -43,7 +43,7 @@ class Node(object):
 		self.edge = edge
 		self.children = []
 		self.board = copyBoard(board)
-		self.availableLocs = availableLocations(board, player)
+		self.availableLocs = availableLocations(board, player, tag='all')
 		#self.updateRemaining()
 		self.createChildren()
 		COUNT_ALLNODES += 1
@@ -62,7 +62,7 @@ class Node(object):
 			self.value = -maxsize * self.player
 			COUNT_LEAVES += 1
 			return
-			
+
 		for r in self.availableLocs:
 			i = r[0]
 			j = r[1]
@@ -89,13 +89,29 @@ class Node(object):
 						self.remaining.append((i,j))
 """
 
-def availableLocations(board, player):
+def availableLocations(board, player, tag='all'):
+	
 	res = []
+	
+	if tag == 'sym':
+		if sum(map(sum,board)) == 0:
+			for i in range((BSIZE + 1)/2):
+				for j in range((BSIZE + 1)/2):
+					res.append((i,j))
+			return res
+
+
 	for i in range(BSIZE):
 		for j in range(BSIZE):
 			if canPlaceOn(board, i, j, player):
 				res.append((i,j))
+
 	return res	
+
+# consider the symmetry?
+def availableLocationsSymmetry(board, player):
+
+
 
 def copyBoard(board):
 	res = []
@@ -351,9 +367,7 @@ if __name__ == "__main__":
 		inputCorrect = 1
 
 		while 1:
-
 			while True:
-
 				choice = input("Choose your location to place the domino. Type as x,y: ");
 
 				try:
