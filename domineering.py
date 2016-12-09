@@ -1,7 +1,6 @@
 
 # Min-max Algorithm for Simulating 4 x 4 Domineering Game
-# CS539 Game theory, algorithms and applications @Illinois tech
-# Author: L. Zhuo
+# By: Kylin
 # Date: 10/28/2016
 
 # ==================================  BUILD THE STRATEGY TREE ============================#
@@ -21,6 +20,7 @@ availables[]:		the list of available locations to place a domino
 
 
 from sys import maxsize
+import time
 
 BSIZE = 4
 COUNT_LEAVES = 0
@@ -49,7 +49,7 @@ class Node(object):
 		COUNT_ALLNODES += 1
 		#print board
 
-	# create children, until the tree reaches its leaves, i.e. the remaining is 0-length
+	# create children, until the tree reaches its leaves
 	def createChildren(self):
 
 		#(overwhelm, winner) = isOverwhelmed(board, threshold)
@@ -67,10 +67,8 @@ class Node(object):
 			i = r[0]
 			j = r[1]
 			placeOnBoard(self.board, i, j, self.player)
-			#subtractRemaining(remaining_v, remaining_h, r, self.player)
 			child = Node(self.depth + 1, switch(self.player), self.board, r)
 			removeFromBoard(self.board, i, j, self.player)
-			#addRemaining(remaining_v, remaining_h, r, self.player, self.board)
 
 			self.children.append(child)
 
@@ -107,10 +105,6 @@ def availableLocations(board, player, tag='all'):
 				res.append((i,j))
 
 	return res	
-
-# consider the symmetry?
-def availableLocationsSymmetry(board, player):
-
 
 
 def copyBoard(board):
@@ -279,32 +273,27 @@ function minimax(node, depth, maximizingPlayer)
 		return bestValue
 """
 
-def minMax(startingNode, player):
-	if(abs(startingNode.value) == maxsize):
-		return startingNode.value
+def minMax(node, player):
+	if(abs(node.value) == maxsize):
+		return node.value
 
 	bestValue = maxsize * (-1) * player
 
-	which = 0
-
 	if player == 1:
-		for i in range(len(startingNode.children)):
-			child = startingNode.children[i]
+
+		for i in range(len(node.children)):
+			child = node.children[i]
 			val = minMax(child, switch(player))
 			if val > bestValue:
-				which = i
+				bestValue = val
+	else:
+
+		for i in range(len(node.children)):
+			child = node.children[i]
+			val = minMax(child, switch(player))
+			if val < bestValue:
 				bestValue = val
 
-	else:
-		for i in range(len(startingNode.children)):
-			child = startingNode.children[i]
-			val = minMax(child, switch(player))
-#			bestValue = min(bestValue, val)
-			if val < bestValue:
-				which = i
-				bestValue = val
-	
-	#print startingNode.depth, which
 	return bestValue
 
 
@@ -326,7 +315,7 @@ def winCheck(board, player):
 # print the board neatly
 def printBoard(board):
 
-	print "The board is:"
+	print "The current board is:"
 
 	for i in range(BSIZE):
 		for j in range(BSIZE):
@@ -336,6 +325,8 @@ def printBoard(board):
 			else:
 				print 'o',
 		print
+
+
 
 
 
@@ -353,12 +344,15 @@ if __name__ == "__main__":
 	#print COUNT_ALLNODES
 	#print COUNT_LEAVES
 
-	print "*" * 60
-	print "INSTRUCTIONS: type in the location you desire to place the domino like 1,2\n"
-	print "It indicates the left part of the domino when you are horizontal player,"
-	print "or the upper part of the domino when you are vertical player.\n"
-	print "The first player who cannot place more domino on the board will lose."
-	print "*" * 60, '\n'
+	print
+	print "*" * 25, "DOMINEERING GAME DEMO", '*'*25
+	printBoard(board)
+
+	print "\nINSTRUCTIONS: input your location to place the domino: (x,y)"
+
+	print "x: row; y: column. The coordinate is the left or the top of 2x1 domino"
+	print "The first player not able to place any more on the board will lose."
+	print "*" * 80, '\n'
 
 	terminate = 0
 
@@ -371,8 +365,8 @@ if __name__ == "__main__":
 				choice = input("Choose your location to place the domino. Type as x,y: ");
 
 				try:
-					x = int(choice[0])
-					y = int(choice[1])
+					x = int(choice[0]) - 1
+					y = int(choice[1]) - 1
 					break;
 				except:
 					# Generating exception when the input format is bad.
@@ -401,9 +395,16 @@ if __name__ == "__main__":
 					bestEdge = node.children[i].edge
 					bestVal = val
 
-			print "Computer chooses to locate at ", bestEdge
+			time.sleep(1.5)
+
+			printBoard(board)
+			print "Computer chooses to locate at ", bestEdge[0]+1,',',bestEdge[1]+1
 			placeOnBoard(board, bestEdge[0], bestEdge[1], curPlayer)
+
+
 			curPlayer *= -1
+
+			time.sleep(1.5)
 
 			printBoard(board)
 
